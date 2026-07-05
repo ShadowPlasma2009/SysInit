@@ -53,3 +53,135 @@ fi
 cp "$SCRIPTDIR/.zshrc" "$HOME/.config/zsh"
 cp "$SCRIPTDIR/.zshenv" "$HOME"
 printf "Copied .zshrc to $HOME/.config/zsh/"
+printf "Copied .zshenv to $HOME"
+sleep 0.5
+
+printf "Importing preconfigured .bashrc and 10-xdg-env.conf...\n"
+printf "Creating $HOME/.config/environment.d/ if necessary..."
+if [ ! -d "$HOME/.config/environment.d" ]; then
+    mkdir -p "$HOME/.config/environment.d"
+    printf "Created $HOME/.config/environment.d/"
+else
+    printf "$HOME/.config/environment.d/ already exists. Skipping..."
+    sleep 0.5
+fi
+
+cp "$SCRIPTDIR/.bashrc" "$HOME/.bashrc"
+cp "$SCRIPTDIR/10-xdg-env.conf" "$HOME/.config/environment.d"
+printf "Copied .bashrc to $HOME"
+printf "Copied 10-xdg-env.conf to $HOME/.config/environment.d/"
+sleep 0.5
+
+
+echo "Creating standard directories if necessary."
+
+if [ ! -d "$HOME/Downloads" ]; then
+    echo "Downloads folder doesn't exist. Creating..."
+    mkdir $HOME/Downloads
+else
+    echo "Downloads folder exists. Skipping..."
+fi
+
+sleep 0.5
+
+if [ ! -d "$HOME/Desktop" ]; then
+    echo "Desktop folder doesn't exist. Creating..."
+    mkdir $HOME/Desktop
+else
+    echo "Desktop folder exists. Skipping..."
+fi
+
+sleep 0.5
+
+if [ ! -d "$HOME/Documents" ]; then
+    echo "Documents folder doesn't exist. Creating..."
+    mkdir $HOME/Documents
+else
+    echo "Documents folder exists. Skipping..."
+fi
+
+sleep 0.5
+
+if [ ! -d "$HOME/Music" ]; then
+    echo "Music folder doesn't exist. Creating..."
+    mkdir $HOME/Music
+else
+    echo "Music folder exists. Skipping..."
+fi
+
+sleep 0.5
+
+if [ ! -d "$HOME/Pictures" ]; then
+    echo "Pictures folder doesn't exist. Creating..."
+    mkdir $HOME/Pictures
+else
+    echo "Pictures folder exists. Skipping..."
+fi
+
+sleep 0.5
+
+if [ ! -d "$HOME/Videos" ]; then
+    echo "Videos folder doesn't exist. Creating..."
+    mkdir $HOME/Videos
+else
+    echo "Videos folder exists. Skipping..."
+fi
+
+sleep 0.5
+
+if [ ! -d "$HOME/Templates" ]; then
+    echo "Templates folder doesn't exist. Creating..."
+    mkdir $HOME/Templates
+else
+    echo "Templates folder exists. Skipping..."
+fi
+
+sleep 0.5
+
+if [ ! -d "$HOME/Public" ]; then
+    echo "Public folder doesn't exist. Creating..."
+    mkdir $HOME/Public
+else
+    echo "Public folder exists. Skipping..."
+fi
+
+sleep 0.5
+
+
+echo "Creating XDG Base Directories if necessary..."
+
+if [ ! -d "$HOME/.config" ]; then
+    mkdir $HOME/.config
+    echo "Created .config/"
+else
+    echo ".config/ exists. Skipping..."
+fi
+
+sleep 0.5
+
+if [ ! -d "$HOME/.cache" ]; then
+    mkdir $HOME/.cache
+    echo "Created .cache/"
+else
+    echo ".cache/ exists. Skipping..."
+fi
+
+sleep 0.5
+
+if [ ! -d "$HOME/.local/share" ]; then
+    mkdir -p $HOME/.local/share
+    echo "Created .local/share/"
+else
+    echo ".local/share/ exists. Skipping..."
+fi
+
+sleep 0.5
+
+if [ ! -d "$HOME/.local/state" ]; then
+    mkdir -p $HOME/.local/state
+    echo "Created .local/state/"
+else
+    echo ".local/state/ exists. Skipping..."
+fi
+
+sleep 0.5
