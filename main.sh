@@ -31,157 +31,160 @@ sleep 0.5
 printf "Configuring OhMyZsh Installation...\n"
 if [ -d "$HOME/.oh-my-zsh" ]; then
     mv "$HOME/.oh-my-zsh" "$HOME/.config/oh-my-zsh"
-    printf "Moved oh-my-zsh folder to .config/"
+    printf "Moved oh-my-zsh folder to .config/\n"
     sleep 0.5
 else
-    printf ".oh-my-zsh/ not found in home directory."
+    printf ".oh-my-zsh/ not found in home directory.\n"
     sleep 0.5
     exit 1
 fi
 
 printf "Importing preconfigured .zshrc and .zshenv files...\n"
-printf "Creating $HOME/.config/zsh/ if necessary..."
+printf "Creating $HOME/.config/zsh/ if necessary...\n"
 if [ ! -d "$HOME/.config/zsh" ]; then
     mkdir -p "$HOME/.config/zsh"
-    printf "Created $HOME/.config/zsh/"
+    printf "Created $HOME/.config/zsh/\n"
     sleep 0.5
 else
-    printf "$HOME/.config/zsh/ already exists. Skipping..."
+    printf "$HOME/.config/zsh/ already exists. Skipping...\n"
     sleep 0.5
 fi
 
 cp "$SCRIPTDIR/.zshrc" "$HOME/.config/zsh"
 cp "$SCRIPTDIR/.zshenv" "$HOME"
-printf "Copied .zshrc to $HOME/.config/zsh/"
-printf "Copied .zshenv to $HOME"
+printf "Copied .zshrc to $HOME/.config/zsh/\n"
+printf "Copied .zshenv to $HOME\n"
 sleep 0.5
 
 printf "Importing preconfigured .bashrc and 10-xdg-env.conf...\n"
-printf "Creating $HOME/.config/environment.d/ if necessary..."
+printf "Creating $HOME/.config/environment.d/ if necessary...\n"
 if [ ! -d "$HOME/.config/environment.d" ]; then
     mkdir -p "$HOME/.config/environment.d"
-    printf "Created $HOME/.config/environment.d/"
+    printf "Created $HOME/.config/environment.d/\n"
 else
-    printf "$HOME/.config/environment.d/ already exists. Skipping..."
+    printf "$HOME/.config/environment.d/ already exists. Skipping...\n"
     sleep 0.5
 fi
 
 cp "$SCRIPTDIR/.bashrc" "$HOME/.bashrc"
 cp "$SCRIPTDIR/10-xdg-env.conf" "$HOME/.config/environment.d"
-printf "Copied .bashrc to $HOME"
-printf "Copied 10-xdg-env.conf to $HOME/.config/environment.d/"
+printf "Copied .bashrc to $HOME\n"
+printf "Copied 10-xdg-env.conf to $HOME/.config/environment.d/\n"
 sleep 0.5
 
 
-echo "Creating standard directories if necessary."
+echo "Creating standard directories if necessary.\n"
 
 if [ ! -d "$HOME/Downloads" ]; then
-    echo "Downloads folder doesn't exist. Creating..."
+    echo "Downloads folder doesn't exist. Creating...\n"
     mkdir $HOME/Downloads
 else
-    echo "Downloads folder exists. Skipping..."
+    echo "Downloads folder exists. Skipping...\n"
 fi
 
 sleep 0.5
 
 if [ ! -d "$HOME/Desktop" ]; then
-    echo "Desktop folder doesn't exist. Creating..."
+    echo "Desktop folder doesn't exist. Creating...\n"
     mkdir $HOME/Desktop
 else
-    echo "Desktop folder exists. Skipping..."
+    echo "Desktop folder exists. Skipping...\n"
 fi
 
 sleep 0.5
 
 if [ ! -d "$HOME/Documents" ]; then
-    echo "Documents folder doesn't exist. Creating..."
+    echo "Documents folder doesn't exist. Creating...\n"
     mkdir $HOME/Documents
 else
-    echo "Documents folder exists. Skipping..."
+    echo "Documents folder exists. Skipping...\n"
 fi
 
 sleep 0.5
 
 if [ ! -d "$HOME/Music" ]; then
-    echo "Music folder doesn't exist. Creating..."
+    echo "Music folder doesn't exist. Creating...\n"
     mkdir $HOME/Music
 else
-    echo "Music folder exists. Skipping..."
+    echo "Music folder exists. Skipping...\n"
 fi
 
 sleep 0.5
 
 if [ ! -d "$HOME/Pictures" ]; then
-    echo "Pictures folder doesn't exist. Creating..."
+    echo "Pictures folder doesn't exist. Creating...\n"
     mkdir $HOME/Pictures
 else
-    echo "Pictures folder exists. Skipping..."
+    echo "Pictures folder exists. Skipping...\n"
 fi
 
 sleep 0.5
 
 if [ ! -d "$HOME/Videos" ]; then
-    echo "Videos folder doesn't exist. Creating..."
+    echo "Videos folder doesn't exist. Creating...\n"
     mkdir $HOME/Videos
 else
-    echo "Videos folder exists. Skipping..."
+    echo "Videos folder exists. Skipping...\n"
 fi
 
 sleep 0.5
 
 if [ ! -d "$HOME/Templates" ]; then
-    echo "Templates folder doesn't exist. Creating..."
+    echo "Templates folder doesn't exist. Creating...\n"
     mkdir $HOME/Templates
 else
-    echo "Templates folder exists. Skipping..."
+    echo "Templates folder exists. Skipping...\n"
 fi
 
 sleep 0.5
 
 if [ ! -d "$HOME/Public" ]; then
-    echo "Public folder doesn't exist. Creating..."
+    echo "Public folder doesn't exist. Creating...\n"
     mkdir $HOME/Public
 else
-    echo "Public folder exists. Skipping..."
+    echo "Public folder exists. Skipping...\n"
 fi
 
 sleep 0.5
 
 
-echo "Creating XDG Base Directories if necessary..."
+echo "Creating XDG Base Directories if necessary...\n"
 
 if [ ! -d "$HOME/.config" ]; then
     mkdir $HOME/.config
-    echo "Created .config/"
+    echo "Created .config/\n"
 else
-    echo ".config/ exists. Skipping..."
+    echo ".config/ exists. Skipping...\n"
 fi
 
 sleep 0.5
 
 if [ ! -d "$HOME/.cache" ]; then
     mkdir $HOME/.cache
-    echo "Created .cache/"
+    echo "Created .cache/\n"
 else
-    echo ".cache/ exists. Skipping..."
+    echo ".cache/ exists. Skipping...\n"
 fi
 
 sleep 0.5
 
 if [ ! -d "$HOME/.local/share" ]; then
     mkdir -p $HOME/.local/share
-    echo "Created .local/share/"
+    echo "Created .local/share/\n"
 else
-    echo ".local/share/ exists. Skipping..."
+    echo ".local/share/ exists. Skipping...\n"
 fi
 
 sleep 0.5
 
 if [ ! -d "$HOME/.local/state" ]; then
     mkdir -p $HOME/.local/state
-    echo "Created .local/state/"
+    echo "Created .local/state/\n"
 else
-    echo ".local/state/ exists. Skipping..."
+    echo ".local/state/ exists. Skipping...\n"
 fi
 
 sleep 0.5
+
+printf "Deleting different stray files and folders so their respective software\n"
+printf "can recreate them in XDG Directories."
