@@ -25,16 +25,24 @@ fi
 sleep 0.5
 
 printf "Installing Oh My Zsh\n"
+export ZSH="$HOME/.config/oh-my-zsh"
 RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
 sleep 0.5
 
 printf "Configuring OhMyZsh Installation...\n"
-if [ -d "$HOME/.oh-my-zsh" ]; then
+if [ -d "$HOME/.config/oh-my-zsh" ]; then
+    printf "Oh My Zsh installed at $HOME/.config/oh-my-zsh\n"
+    sleep 0.5
+elif [ -d "$HOME/.config/ohmyzsh" ]; then
+    mv "$HOME/.config/ohmyzsh" "$HOME/.config/oh-my-zsh"
+    printf "Renamed installer directory to .config/oh-my-zsh\n"
+    sleep 0.5
+elif [ -d "$HOME/.oh-my-zsh" ]; then
     mv "$HOME/.oh-my-zsh" "$HOME/.config/oh-my-zsh"
     printf "Moved oh-my-zsh folder to .config/\n"
     sleep 0.5
 else
-    printf ".oh-my-zsh/ not found in home directory.\n"
+    printf "Oh My Zsh installation directory was not found.\n"
     sleep 0.5
     exit 1
 fi
