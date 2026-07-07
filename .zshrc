@@ -26,6 +26,7 @@ export HISTFILE="$HOME/.cache/zsh_history"
 
 # Miscellaneous
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+export GIT_CONFIG_GLOBAL="$XDG_CONFIG_HOME/git/config"
 export LANG=en_US.UTF-8
 if command -v micro &> /dev/null; then
     export EDITOR=micro
